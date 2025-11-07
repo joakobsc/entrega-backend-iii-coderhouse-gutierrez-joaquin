@@ -1,0 +1,70 @@
+paths:
+  /api/mocks/generateData:
+    post:
+      summary: Genera datos falsos e inserta en la base de datos
+      description: >
+        Inserta usuarios y mascotas de ejemplo en la base de datos para
+        realizar pruebas de la API. **No debe exponerse en producción.**
+      tags:
+        - Mocks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  type: integer
+                  description: Cantidad de usuarios a generar e insertar.
+                  example: 10
+                pets:
+                  type: integer
+                  description: Cantidad de mascotas a generar e insertar.
+                  example: 20
+      responses:
+        "201":
+          description: Datos generados e insertados correctamente.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  inserted:
+                    type: object
+                    properties:
+                      users:
+                        type: integer
+                        example: 10
+                      pets:
+                        type: integer
+                        example: 20
+        "400":
+          description: Parámetros inválidos (valores negativos o tipos no numéricos).
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: string
+                    example: Parámetros inválidos
+        "500":
+          description: Error inesperado en el servidor.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: string
+                    example: Error interno del servidor
