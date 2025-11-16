@@ -1,0 +1,18 @@
+# Dependencias locales
+node_modules
+
+# Archivos de entorno
+.env
+.env.*
+
+# Git y metadatos
+.git
+.gitignore
+
+# Logs y cosas pesadas/innecesarias
+logs
+npm-debug.log
+coverage
+
+# Tests (no necesarios para correr la app en el contenedor)
+test

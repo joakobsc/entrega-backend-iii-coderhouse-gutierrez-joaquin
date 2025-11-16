@@ -213,7 +213,7 @@ docker run -p 8080:8080 \
  -e PORT=8080 \
  -e MODE=DEV \
  -e MONGO_URL="mongodb+srv://<user>:<pass>@<cluster>.mongodb.net/<db>?retryWrites=true&w=majority" \
- TU_USUARIO_DOCKER/adoptme-backend
+joaquin021/adoptme-backend
 
 👆 El profesor puede usar su propia MONGO_URL, no necesita acceso a tu cluster.
 

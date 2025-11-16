@@ -181,7 +181,7 @@ describe("Adoption Router - Functional Tests", function () {
     const pet = await petModel.create({
       name: "Rex",
       specie: "dog",
-      adopted: true, // 👈 ya adoptada
+      adopted: true,
       owner: user._id,
     });
 

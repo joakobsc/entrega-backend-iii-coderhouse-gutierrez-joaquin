@@ -1,19 +1,19 @@
-
 FROM node:20-alpine
 
-# Directorio de trabajo dentro del contenedor
+# Directorio dentro del contenedor
 WORKDIR /app
 
-# Copiamos solo los archivos de dependencias primero (aprovecha caché)
+# Copiamos solo las dependencias primero (mejor uso de caché)
 COPY package*.json ./
 
 # Instalamos dependencias
 RUN npm install
 
-# Copiamos el resto del proyecto
-COPY ./src ./src
+# Copiamos TODO el proyecto (respetando .dockerignore)
+COPY . .
 
-EXPOSE ${PORT}
+# Exponemos el puerto de la app
+EXPOSE 8080
 
-# Comando por defecto
+# Comando por defecto para levantar el servidor
 CMD ["npm", "start"]
